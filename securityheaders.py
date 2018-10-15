@@ -1,5 +1,3 @@
-# modified by prestinn, credits to https://github.com/juerkkil/securityheaders
-
 import http.client
 import argparse
 import socket 
@@ -15,7 +13,6 @@ class SecurityHeaders():
 
     def evaluate_warn(self, header, contents):
         warn = 1
-        print(header)
 
         if header == 'X-Frame-Options':
             if contents.lower() in ['deny', 'sameorigin']:
@@ -83,7 +80,6 @@ class SecurityHeaders():
             conn.request('HEAD', path)
             res = conn.getresponse()
             headers = res.getheaders()
-            print (headers)
             
         except socket.gaierror:
             print('HTTP request failed')
@@ -126,6 +122,7 @@ if __name__ == "__main__":
         print ("Failed to fetch headers, exiting...")
         sys.exit(1)
 
+    print('[HOST] ' + url)
     for header, value in headers.items():
         if value['warn'] == 1:
             if value['defined'] == False:
