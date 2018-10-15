@@ -1,3 +1,5 @@
+# modified by prestinn, credits to https://github.com/juerkkil/securityheaders
+
 import http.client
 import argparse
 import socket 
