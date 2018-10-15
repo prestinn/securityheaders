@@ -122,7 +122,6 @@ if __name__ == "__main__":
         print ("Failed to fetch headers, exiting...")
         sys.exit(1)
 
-    print('[HOST] ' + url)
     for header, value in headers.items():
         if value['warn'] == 1:
             if value['defined'] == False:
